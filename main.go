@@ -20,12 +20,12 @@ func main() {
 		log.Fatal(err)
 	}
 
-	r, _ := regexp.Compile("^.*/(.*)")
+	re, _ := regexp.Compile("^.*/(.*)")
 
 	refs, _ := r.References()
 	refs.ForEach(func(ref *plumbing.Reference) error {
 		if ref.Type() == plumbing.HashReference && ref.Hash() == headRef.Hash() && ref.Name() != "HEAD" {
-			fmt.Println(r.FindStringSubmatch(ref.Name())[1])
+			fmt.Println(re.FindStringSubmatch(ref.Name())[1])
 		}
 
 		return nil
