@@ -21,7 +21,7 @@ func main() {
 
 	refs, _ := r.References()
 	refs.ForEach(func(ref *plumbing.Reference) error {
-		if ref.Type() == plumbing.HashReference && ref.Hash() == headRef && ref.Name() != "HEAD" {
+		if ref.Type() == plumbing.HashReference && ref.Hash() == headRef.Hash() && ref.Name() != "HEAD" {
 			fmt.Println(ref.Name())
 		}
 
