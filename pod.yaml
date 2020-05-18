@@ -3,6 +3,6 @@ kind: Pod
 spec:
   containers:
   - name: golang
-    image: golang:1.13.11-alpine3.11
+    image: golang:1.14.3-alpine3.11
     command: ["cat"]
     tty: true
