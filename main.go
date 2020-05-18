@@ -14,6 +14,13 @@ func main() {
 		log.Fatal(err)
 	}
 
+	headRef, err := r.Head()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(headRef)
+
 	refs, _ := r.References()
 	refs.ForEach(func(ref *plumbing.Reference) error {
 		if ref.Type() == plumbing.HashReference {
